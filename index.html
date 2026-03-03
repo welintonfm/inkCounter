@@ -3,21 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ink Counter | MTG Life Counter for E-ink devices</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    
 </head>
 <body>
-    <button onclick="add(1)">teste</button>
-    <button onclick="add(-1)">teste</button>
-    <p id="counter1">0</p>
+    <div class="container">
+        <div class="player">
+            <div class="lifeCounter">
+                <button onclick="add(1, 1)">+</button>
+                <p id="counter1" class="life">0</p>
+                <button onclick="add(-1, 1)">-</button>
+            </div>
+        </div>
+        <div class="player">
+            <div class="lifeCounter">
+                <button onclick="add(1, 2)">+</button>
+                <p id="counter2" class="life">0</p>
+                <button onclick="add(-1, 2)">-</button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        let counter = 0
+        let life1 = 0
+        let life2 = 0
         let counter1 = document.getElementById('counter1')
+        let counter2 = document.getElementById('counter2')
 
-        const add = (x) =>{
-        counter = counter + x
-        counter1.innerText = counter
-        return
+        const add = (x, player) =>{
+            if(player == 1){
+                life1 += x
+                counter1.innerText = life1
+            } else {
+                life2 += x
+                counter2.innerText = life2
+            }
         }
     </script>
 </body>
