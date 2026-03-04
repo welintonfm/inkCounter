@@ -12,27 +12,46 @@
 </head>
 <body>
     <div class="container">
-        <div class="player">
+        <div class="player" style="transform: rotate(180deg);">
+            <p>Player 2</p>
             <div class="lifeCounter">
-                <button onclick="add(1, 1)">+</button>
-                <p id="counter1" class="life">0</p>
-                <button onclick="add(-1, 1)">-</button>
+                <button onclick="add(-1, 2)" style="padding-bottom: 24px">-</button>
+                <p id="counter2" class="life">0</p>
+                <button onclick="add(1, 2)">+</button>
+            </div>
+            <div class="lifeButtons">
+                <button onclick="add(-10, 2)">-10</button>
+                <button onclick="add(-5, 2)">-5</button>
+                <button onclick="add(5, 2)">+5</button>
+                <button onclick="add(10, 2)">+10</button>
             </div>
         </div>
         <div class="player">
+            <p>Player 1</p>
             <div class="lifeCounter">
-                <button onclick="add(1, 2)">+</button>
-                <p id="counter2" class="life">0</p>
-                <button onclick="add(-1, 2)">-</button>
+                <button onclick="add(-1, 1)" style="padding-bottom: 24px">-</button>
+                <p id="counter1" class="life">0</p>
+                <button onclick="add(1, 1)">+</button>
+            </div>
+            <div class="lifeButtons">
+                <button onclick="add(-10, 1)">-10</button>
+                <button onclick="add(-5, 1)">-5</button>
+                <button onclick="add(5, 1)">+5</button>
+                <button onclick="add(10, 1)">+10</button>
+            </div>
+            <div class="resetRow">
+                <button onclick="reset()">Reset</button>
             </div>
         </div>
     </div>
 
     <script>
-        let life1 = 0
-        let life2 = 0
+        let life1 = 20
+        let life2 = 20
         let counter1 = document.getElementById('counter1')
         let counter2 = document.getElementById('counter2')
+        counter1.innerText = life1
+        counter2.innerText = life2
 
         const add = (x, player) =>{
             if(player == 1){
@@ -42,6 +61,13 @@
                 life2 += x
                 counter2.innerText = life2
             }
+        }
+
+        const reset = () =>{
+            life1 = 20
+            life2 = 20
+            counter1.innerText = life1
+            counter2.innerText = life2
         }
     </script>
 </body>
